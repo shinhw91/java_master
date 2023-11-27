@@ -32,6 +32,8 @@ public class Game7_369 {
 			}
 		}
 		
+		// 깃허브 모르겠어요 교수님
+		
 		
 	}	// end main
 

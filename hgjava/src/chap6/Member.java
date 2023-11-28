@@ -32,7 +32,7 @@ public class Member {
 	}
 
 	// 기능(메소드)
-	void ShowInfo() {	// void : 반환값 없음
+	void showInfo() {	// void : 반환값 없음
 		System.out.println("이름은 " + memberName + "이고 연락처는 " + phone + "입니다.");
 	}
 	

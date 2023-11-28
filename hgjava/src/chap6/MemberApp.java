@@ -12,7 +12,7 @@ public class MemberApp {
 		for(int i = 0; i < members.length; i++) {
 			if(members[i] != null && members[i].getMemberName().equals("Choi")) {
 				System.out.println(members[i].showAllInfo());
-				members[i].ShowInfo();
+				members[i].showInfo();
 			}
 		}
 		
@@ -30,16 +30,16 @@ public class MemberApp {
 //		mem1.gender = "Men";
 		mem1.setGender("Men");
 
-		mem1.ShowInfo();
+		mem1.showInfo();
 		
 		Member mem2 = new Member(11, "Hwang");
 //		mem2.phone = "010-9876-5432";
 		mem2.setPhone("010-9876-5432");
 		
-		mem2.ShowInfo();
+		mem2.showInfo();
 		
 		Member mem3 = new Member(12, "Park", "010-0000-0000", "Women");
-		mem3.ShowInfo();	// 반환유형 : void
+		mem3.showInfo();	// 반환유형 : void
 		
 		String msg = mem3.showAllInfo();	// 반환유형 : String
 		System.out.println(msg);

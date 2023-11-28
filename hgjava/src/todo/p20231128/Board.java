@@ -20,8 +20,12 @@ public class Board {
 	
 	
 	// 기능(메소드)
-	void ShowInfo() {
-		System.out.println("번호 : " + boardNum + " / 제목 : " + title + "입니다");
+	void showList() {
+		System.out.println(boardNum + " " + title + " " + writer);
+	}
+	
+	void showAllInfo() {
+		System.out.println("번호 : " + boardNum + " / 제목 : " + title);
 		System.out.println("작성자 : " + writer);
 		System.out.println("내용 : " + contents);
 		System.out.println("일시 : " + date);

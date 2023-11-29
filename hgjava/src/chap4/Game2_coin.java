@@ -5,23 +5,23 @@ import java.util.Scanner;
 public class Game2_coin {
 
 	public static void main(String[] args) {
-		// µ¿Àü ±³È¯ ÇÁ·Î±×·¥
-		// Game7_369 À¯»ç
+		// ë™ì „ êµí™˜ í”„ë¡œê·¸ë¨
+		// Game7_369 ìœ ì‚¬
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.print("##±³È¯ÇÒ ±İ¾× : ");
+		System.out.print("##êµí™˜í•  ê¸ˆì•¡ : ");
 		int money = sc.nextInt();
 		
-		System.out.printf("500¿øÂ¥¸® : %d°³ \n", money / 500);
+		System.out.printf("500ì›ì§œë¦¬ : %dê°œ \n", money / 500);
 		int remoney = money % 500;
-		System.out.printf("100¿øÂ¥¸® : %d°³ \n", remoney / 100);
+		System.out.printf("100ì›ì§œë¦¬ : %dê°œ \n", remoney / 100);
 		remoney = remoney % 100;
-		System.out.printf("50¿øÂ¥¸® : %d°³ \n", remoney / 50);
+		System.out.printf("50ì›ì§œë¦¬ : %dê°œ \n", remoney / 50);
 		remoney = remoney % 50;
-		System.out.printf("10¿øÂ¥¸® : %d°³ \n", remoney / 10);
+		System.out.printf("10ì›ì§œë¦¬ : %dê°œ \n", remoney / 10);
 		remoney = remoney % 10;
-		System.out.printf("±³È¯ ±İ¾× : %d¿ø \n", money - remoney);
-		System.out.printf("³²Àº ±İ¾× : %d¿ø \n", remoney);
+		System.out.printf("êµí™˜ ê¸ˆì•¡ : %dì› \n", money - remoney);
+		System.out.printf("ë‚¨ì€ ê¸ˆì•¡ : %dì› \n", remoney);
 		
 //		int coin500 = 0;
 //		int coin100 = 0;
@@ -33,12 +33,12 @@ public class Game2_coin {
 //		coin50 = (money % 500 % 100) / 50;
 //		coin10 = (money % 500 % 100 % 50) / 10;
 		
-//		System.out.printf("500¿øÂ¥¸® : %d°³ \n", coin500);
-//		System.out.printf("100¿øÂ¥¸® : %d°³ \n", coin100);
-//		System.out.printf("50¿øÂ¥¸® : %d°³ \n", coin50);
-//		System.out.printf("10¿øÂ¥¸® : %d°³ \n", coin10);
-//		System.out.printf("±³È¯ ±İ¾× : %d°³ \n", (coin500*500) + (coin100*100) + (coin50*50) + (coin10*10));
-//		System.out.printf("³²Àº ±İ¾× : %d¿ø \n", money - ((coin500*500) + (coin100*100) + (coin50*50) + (coin10*10)));
+//		System.out.printf("500ì›ì§œë¦¬ : %dê°œ \n", coin500);
+//		System.out.printf("100ì›ì§œë¦¬ : %dê°œ \n", coin100);
+//		System.out.printf("50ì›ì§œë¦¬ : %dê°œ \n", coin50);
+//		System.out.printf("10ì›ì§œë¦¬ : %dê°œ \n", coin10);
+//		System.out.printf("êµí™˜ ê¸ˆì•¡ : %dê°œ \n", (coin500*500) + (coin100*100) + (coin50*50) + (coin10*10));
+//		System.out.printf("ë‚¨ì€ ê¸ˆì•¡ : %dì› \n", money - ((coin500*500) + (coin100*100) + (coin50*50) + (coin10*10)));
 		
 		sc.close();
 

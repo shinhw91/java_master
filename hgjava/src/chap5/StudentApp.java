@@ -10,23 +10,23 @@ public class StudentApp {
 		int[] scores = null;
 		String[] names = null;
 		
-		// 1.ÇÐ»ý¼ö 2.Á¡¼öÀÔ·Â 3.¸ñ·ÏÃâ·Â 4.ºÐ¼®(ÃÖ°íÁ¡¼ö, Æò±Õ) 5.Á¾·á
+		// 1.í•™ìƒìˆ˜ 2.ì ìˆ˜ìž…ë ¥ 3.ëª©ë¡ì¶œë ¥ 4.ë¶„ì„(ìµœê³ ì ìˆ˜, í‰ê· ) 5.ì¢…ë£Œ
 		boolean run = true;
 		while(run) {
-			System.out.println("1.ÇÐ»ý¼ö 2.Á¡¼öÀÔ·Â 3.¸ñ·ÏÃâ·Â 4.ºÐ¼®(ÃÖ°íÁ¡¼ö, Æò±Õ) 5.Á¾·á");
-			int menu = sc.nextInt();	// Enter ¾Õ±îÁö Ã³¸®
-			sc.nextLine();	// Enter Ã³¸®
+			System.out.println("1.í•™ìƒìˆ˜ 2.ì ìˆ˜ìž…ë ¥ 3.ëª©ë¡ì¶œë ¥ 4.ë¶„ì„(ìµœê³ ì ìˆ˜, í‰ê· ) 5.ì¢…ë£Œ");
+			int menu = sc.nextInt();	// Enter ì•žê¹Œì§€ ì²˜ë¦¬
+			sc.nextLine();	// Enter ì²˜ë¦¬
 			
 			switch(menu) {
 			case 1 : 
-				System.out.println("ÇÐ»ý¼öÀÔ·Â>>");
+				System.out.println("í•™ìƒìˆ˜ìž…ë ¥>>");
 				studentNum = sc.nextInt();
 				scores = new int[studentNum];
 				names = new String[studentNum];
 				break;
 			case 2 :
-				System.out.println("Á¡¼öÀÔ·Â>>");
-				// for ¹Ýº¹
+				System.out.println("ì ìˆ˜ìž…ë ¥>>");
+				// for ë°˜ë³µ
 				for(int i = 0; i < scores.length; i++) {
 					System.out.print("name[" + i + "]>> ");
 					names[i] = sc.nextLine();
@@ -36,14 +36,14 @@ public class StudentApp {
 				}
 				break;
 			case 3 :
-				System.out.println("¸ñ·ÏÃâ·Â>>");
+				System.out.println("ëª©ë¡ì¶œë ¥>>");
 				for(int i = 0; i < scores.length; i++) {
-					System.out.print("ÀÌ¸§Àº " + names[i] + ", Á¡¼ö´Â " + scores[i] + "\n");
+					System.out.print("ì´ë¦„ì€ " + names[i] + ", ì ìˆ˜ëŠ” " + scores[i] + "\n");
 				}
 				break;
 			case 4 :
-				System.out.println("ºÐ¼®>>");
-				// ÃÖ°íÁ¡¼ö Ãâ·Â
+				System.out.println("ë¶„ì„>>");
+				// ìµœê³ ì ìˆ˜ ì¶œë ¥
 				int maxScore = 0;
 				String maxName = "";
 				double avg = 0;
@@ -66,10 +66,10 @@ public class StudentApp {
 				}
 				
 				avg = sum * 1.0 / scores.length;
-				System.out.println(maxName + "ÃÖ°íÁ¡¼ö : " + maxScore + ", Æò±Õ : " + avg);
+				System.out.println(maxName + "ìµœê³ ì ìˆ˜ : " + maxScore + ", í‰ê·  : " + avg);
 				break;
 			case 5 :
-				System.out.println("Á¾·á>>");
+				System.out.println("ì¢…ë£Œ>>");
 				run = false;
 				break;
 			}	// end of switch

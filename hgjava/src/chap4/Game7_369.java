@@ -3,15 +3,15 @@ package chap4;
 public class Game7_369 {
 
 	public static void main(String[] args) {
-		// 1~50 : 369°ÔÀÓ
+		// 1~50 : 369ê²Œìž„
 
-		// 3, 6, 9 °¹¼ö Ã¼Å© º¯¼ö
-		// ¼ýÀÚ 1~50 ¹Ýº¹¹®
-			// ÀÏÀÇ ÀÚ¸®¿¡ 3, 6, 9 °¹¼ö Ã¼Å©
-			// ½ÊÀÇ ÀÚ¸®¿¡ 3, 6, 9 °¹¼ö Ã¼Å©
-		// °¹¼ö°¡ 0 -> ¼ýÀÚ
-		// °¹¼ö°¡ 1 -> ¢¾
-		// °¹¼ö°¡ 2 -> ¢¾¢¾
+		// 3, 6, 9 ê°¯ìˆ˜ ì²´í¬ ë³€ìˆ˜
+		// ìˆ«ìž 1~50 ë°˜ë³µë¬¸
+			// ì¼ì˜ ìžë¦¬ì— 3, 6, 9 ê°¯ìˆ˜ ì²´í¬
+			// ì‹­ì˜ ìžë¦¬ì— 3, 6, 9 ê°¯ìˆ˜ ì²´í¬
+		// ê°¯ìˆ˜ê°€ 0 -> ìˆ«ìž
+		// ê°¯ìˆ˜ê°€ 1 -> â™¥
+		// ê°¯ìˆ˜ê°€ 2 -> â™¥â™¥
 		
 		for(int i = 1; i <= 50; i++) {
 			int count = 0;
@@ -24,15 +24,15 @@ public class Game7_369 {
 				
 			switch(count) {
 			case 0 : System.out.print(i + "\t"); break;
-			case 1 : System.out.print("¢¾\t"); break;
-			case 2 : System.out.print("¢¾¢¾\t"); break;	
+			case 1 : System.out.print("â™¥\t"); break;
+			case 2 : System.out.print("â™¥â™¥\t"); break;	
 			}
 			if(i % 10 == 0) {
 				System.out.println("");
 			}
 		}
 		
-		// ±êÇãºê ¸ð¸£°Ú¾î¿ä ±³¼ö´Ô
+		// ê¹ƒí—ˆë¸Œ ëª¨ë¥´ê² ì–´ìš” êµìˆ˜ë‹˜
 		
 		
 	}	// end main

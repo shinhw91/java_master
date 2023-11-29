@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class exam160 {
 
 	public static void main(String[] args) {
-		// ¹®Á¦ 2 : 3ÀÇ ¹è¼ö ÇÕ
+		// ë¬¸ì œ 2 : 3ì˜ ë°°ìˆ˜ í•©
 		int sum = 0;
 		for(int i = 1; i <= 100; i++) {
 			if(i % 3 == 0) {
@@ -14,16 +14,16 @@ public class exam160 {
 		}
 		System.out.println(sum);
 		
-		// ¹®Á¦ 3	
+		// ë¬¸ì œ 3	
 		while(true) {
 			int num1 = (int)(Math.random() * 6) + 1;
 			int num2 = (int)(Math.random() * 6) + 1;
 			System.out.printf("(%d, %d) \n", num1, num2);
 			if(num1 + num2 ==5) break;
 		}
-		System.out.println("Á¾·á");
+		System.out.println("ì¢…ë£Œ");
 		
-		// ¹®Á¦ 4
+		// ë¬¸ì œ 4
 		for(int x = 1; x <= 10; x++) {
 			for(int y = 1; y <= 10; y++) {
 				if(4*x + 5*y == 60) {
@@ -32,14 +32,14 @@ public class exam160 {
 			}
 		}
 		
-		// ¹®Á¦ 5
+		// ë¬¸ì œ 5
 		String star = "";
 		for(int i = 0; i < 4; i++) {
 			star += "*";
 			System.out.println(star);
 		}
 		
-		// ¹®Á¦ 6
+		// ë¬¸ì œ 6
 		String stars = "";
 		for(int i = 0; i < 4; i++) {
 			for(int b = 0; b < (3-i); b++) {
@@ -52,38 +52,38 @@ public class exam160 {
 		}
 		System.out.println(stars);
 		
-		// ¹®Á¦ 7
+		// ë¬¸ì œ 7
 		boolean run = true;
 		int balance = 0;
 		Scanner scanner = new Scanner(System.in);
 		
 		while(run) {
 			System.out.println("--------------------------------");
-			System.out.println("1.¿¹±İ | 2.Ãâ±İ | 3. ÀÜ°í | 4. Á¾·á");
+			System.out.println("1.ì˜ˆê¸ˆ | 2.ì¶œê¸ˆ | 3. ì”ê³  | 4. ì¢…ë£Œ");
 			System.out.println("--------------------------------");
-			System.out.print("¼±ÅÃ> ");
+			System.out.print("ì„ íƒ> ");
 			
 			int select = scanner.nextInt();
 			switch(select) {
 			case 1: 
-				System.out.println("¿¹±İ¾×> " );
+				System.out.println("ì˜ˆê¸ˆì•¡> " );
 				int money = scanner.nextInt();
 				balance += money;
 				break;
 			case 2: 
-				System.out.println("Ãâ±İ¾×> ");
+				System.out.println("ì¶œê¸ˆì•¡> ");
 				money = scanner.nextInt();
 				if(money > balance) {
-					System.out.println("ÀÜ¾×ÀÌ ºÎÁ·ÇÕ´Ï´Ù");
+					System.out.println("ì”ì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤");
 				} else {
 					balance -= money;
 				}
 				break;
 			case 3:
-				System.out.println("ÀÜ°í> " + balance);
+				System.out.println("ì”ê³ > " + balance);
 				break;
 			case 4:
-				System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+				System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 				run = false;
 			}
 		}

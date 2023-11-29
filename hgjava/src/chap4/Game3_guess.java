@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Game3_guess {
 
 	public static void main(String[] args) {
-		// ¼ýÀÚ ÃßÃø °ÔÀÓ
+		// ìˆ«ìž ì¶”ì¸¡ ê²Œìž„
 		
 		int computer = (int)(Math.random() * 100) + 1;
 		Scanner sc = new Scanner(System.in);
@@ -13,13 +13,13 @@ public class Game3_guess {
 		while(true) {
 			int myNum = sc.nextInt();
 			if(myNum == computer) {
-				System.out.println("ÃàÇÏÇÕ´Ï´Ù!!");
+				System.out.println("ì¶•í•˜í•©ë‹ˆë‹¤!!");
 				break;
 			}
 			if(myNum > computer) {
-				System.out.println("downÇÏ¼¼¿ä!!");
+				System.out.println("downí•˜ì„¸ìš”!!");
 			} else {
-				System.out.println("upÇÏ¼¼¿ä!!");
+				System.out.println("upí•˜ì„¸ìš”!!");
 			}
 		}
 		

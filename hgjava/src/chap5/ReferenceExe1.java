@@ -1,10 +1,10 @@
 package chap5;
 
-// º¹ÇÕÀûÀÎ ÇüÅÂÀÇ µ¥ÀÌÅÍ ±¸Á¶
+// ë³µí•©ì ì¸ í˜•íƒœì˜ ë°ì´í„° êµ¬ì¡°
 class Friend {
-	String name; // ÇÊµå
-	int age; // ÇÊµå
-	double height;	// ÇÊµå
+	String name; // í•„ë“œ
+	int age; // í•„ë“œ
+	double height;	// í•„ë“œ
 	
 }
 
@@ -12,36 +12,36 @@ public class ReferenceExe1 {
 
 	public static void main(String[] args) {
 		
-		// ÂüÁ¶º¯¼ö : ½ÇÁ¦ °ªÀ» ´ã´Â °Í (X) -> ½ÇÁ¦ °ªÀÇ ÁÖ¼Ò
-		Friend myFriend = new Friend();	// new => °´Ã¼ »ý¼º
-		myFriend.name = "±èÃ¶¼ö";
+		// ì°¸ì¡°ë³€ìˆ˜ : ì‹¤ì œ ê°’ì„ ë‹´ëŠ” ê²ƒ (X) -> ì‹¤ì œ ê°’ì˜ ì£¼ì†Œ
+		Friend myFriend = new Friend();	// new => ê°ì²´ ìƒì„±
+		myFriend.name = "ê¹€ì² ìˆ˜";
 		myFriend.age = 20;
 		myFriend.height = 178.3;
 		
 //		Friend ourFriend = myFriend;
 //		
-//		myFriend.name = "È«±æµ¿";
+//		myFriend.name = "í™ê¸¸ë™";
 //		
 //		System.out.println(ourFriend.name);
 //		System.out.println(ourFriend.age);
 //		System.out.println(ourFriend.height);
 		
-		Friend yourFriend = new Friend();	// new => °´Ã¼ »ý¼º
-		yourFriend.name = "±èÃ¶¼ö";
+		Friend yourFriend = new Friend();	// new => ê°ì²´ ìƒì„±
+		yourFriend.name = "ê¹€ì² ìˆ˜";
 		yourFriend.age = 20;
 		yourFriend.height = 178.3;
 		
-		System.out.println(myFriend == yourFriend);	// ÁÖ¼Ò°ª ºñ±³ : false
+		System.out.println(myFriend == yourFriend);	// ì£¼ì†Œê°’ ë¹„êµ : false
 		
 		yourFriend = null;
 		System.out.println(myFriend.name);
 		try {
 			System.out.println(yourFriend.name);
 		} catch (Exception e) {
-			System.out.println("null°ªÀ» ÂüÁ¶ÇÕ´Ï´Ù.");
+			System.out.println("nullê°’ì„ ì°¸ì¡°í•©ë‹ˆë‹¤.");
 		}
 		
-		// ±âº»Å¸ÀÔ
+		// ê¸°ë³¸íƒ€ìž…
 		int a = 10;
 		int b = a;
 		
@@ -50,17 +50,17 @@ public class ReferenceExe1 {
 		System.out.println(a);
 		System.out.println(b);
 		
-		// ÂüÁ¶Å¸ÀÔ : ÁÖ¼Ò°ªÀ» º¯¼ö¿¡ ÀúÀå
-		String name = "½Å¿ë±Ç";
-		String hobby = "µ¶¼­";
+		// ì°¸ì¡°íƒ€ìž… : ì£¼ì†Œê°’ì„ ë³€ìˆ˜ì— ì €ìž¥
+		String name = "ì‹ ìš©ê¶Œ";
+		String hobby = "ë…ì„œ";
 		
-		String name1 = "½Å¿ë±Ç";
-		String name2 = new String("½Å¿ë±Ç");
+		String name1 = "ì‹ ìš©ê¶Œ";
+		String name2 = new String("ì‹ ìš©ê¶Œ");
 		System.out.println("name : " + name);
 		System.out.println("name1 : " + name1);
 		
 		System.out.println(name == name1);
-		System.out.println(name == name2);	// == -> equals ¸Þ¼Òµå È°¿ë
+		System.out.println(name == name2);	// == -> equals ë©”ì†Œë“œ í™œìš©
 		System.out.println(name.equals(name1));
 	}
 

@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class GameRPS {
 
 	public static void main(String[] args) {
-		// °¡À§, ¹ÙÀ§, º¸ °ÔÀÓ
+		// ê°€ìœ„, ë°”ìœ„, ë³´ ê²Œì„
 		
 		int computer = (int)(Math.random()*2);
 		Scanner sc = new Scanner(System.in);
 		int human = sc.nextInt();
 		if(computer == human) {
-			System.out.println("ºñ°åÀ½");
+			System.out.println("ë¹„ê²¼ìŒ");
 		}
 		
 

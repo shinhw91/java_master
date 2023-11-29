@@ -13,8 +13,8 @@ public class ArrayExe1 {
 		for(int i = 0; i < ary.length; i++) {
 			sum1 += ary[i];
 		}
-		System.out.println("�հ�� " + sum + "�Դϴ�.");
-		System.out.println("�հ�� " + sum1 + "�Դϴ�.");
+		System.out.println("합계는 " + sum + "입니다.");
+		System.out.println("합계는 " + sum1 + "입니다.");
 		
 		int[] intAry = new int[5];
 		double[] heights = new double[3];
@@ -22,8 +22,8 @@ public class ArrayExe1 {
 		System.out.println(heights[0]);
 		
 		String[] names = new String[10];
-		names[0] = "ȫ�浿";
-		names[1] = "��浿";
+		names[0] = "홍길동";
+		names[1] = "김길동";
 		System.out.println(names[0]);
 		System.out.println(names[2]);
 		

@@ -3,11 +3,11 @@ package chap5;
 public class ArrayExe3 {
 
 	public static void main(String[] args) {
-		String[] nameAry = {"È«±æµ¿", "±è±æµ¿", "¹Ú±æµ¿", "È«±æµ¿", "È²±æµ¿"};
+		String[] nameAry = {"í™ê¸¸ë™", "ê¹€ê¸¸ë™", "ë°•ê¸¸ë™", "í™ê¸¸ë™", "í™©ê¸¸ë™"};
 		
-		String search = "È«±æµ¿";
+		String search = "í™ê¸¸ë™";
 		int count = 0;
-		// for¹İº¹¹® È°¿ë
+		// forë°˜ë³µë¬¸ í™œìš©
 		for(int i = 0; i < nameAry.length; i++) {
 			if(nameAry[i].equals(search)) {
 				count++;
@@ -21,10 +21,10 @@ public class ArrayExe3 {
 			}
 		}
 			
-		System.out.println(search + "Àº ÃÑ" + count + "¸í ÀÔ´Ï´Ù.");
-		System.out.println(search + "Àº ÃÑ" + count1 + "¸í ÀÔ´Ï´Ù.");
+		System.out.println(search + "ì€ ì´" + count + "ëª… ì…ë‹ˆë‹¤.");
+		System.out.println(search + "ì€ ì´" + count1 + "ëª… ì…ë‹ˆë‹¤.");
 		
-		// ÃÖ´ë°ª Ã£±â
+		// ìµœëŒ€ê°’ ì°¾ê¸°
 		int[] scores = {88, 68, 72, 89, 92, 70};
 		int maxScore = 0;
 		for(int score : scores) {
@@ -33,7 +33,7 @@ public class ArrayExe3 {
 			}
 		}
 
-		System.out.println("°¡Àå Å« °ª : " + maxScore);
+		System.out.println("ê°€ì¥ í° ê°’ : " + maxScore);
 		
 	}	// end main
 

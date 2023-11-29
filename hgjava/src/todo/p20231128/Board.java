@@ -1,4 +1,5 @@
 package todo.p20231128;
+// 나도 변경 test
 
 public class Board {
 	// 속성(필드)

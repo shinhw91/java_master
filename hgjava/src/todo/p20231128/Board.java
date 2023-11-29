@@ -1,4 +1,5 @@
 package todo.p20231128;
+// 깃허브 충돌 test
 
 public class Board {
 	// 속성(필드)

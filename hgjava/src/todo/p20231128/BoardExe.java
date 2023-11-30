@@ -1,20 +1,28 @@
+// 정적 멤버(static) : 객체마다 다를 필요가 없는 필드값
+// 인스턴스(객체) 생성 필요없음
+
 package todo.p20231128;
-// 저장소 : boards
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+// 저장소 : boards
 public class BoardExe {
 	// 배열
-	Board[] boards;
+	static Board[] boards;
 
-	// 생성자
+	// 생성자(인스턴스 생성)
 	BoardExe() {
+//		boards = new Board[100];
+	}
+	
+	// 정적
+	static {
 		boards = new Board[100];
 	}
 	
 	// 초기값 생성
-	void initData() {
+	public static void initData() {
 		boards[0] = new Board(1, "첫번째 글", "user01", "첫번째 글 입력중입니다", "2023-11-27");
 		boards[1] = new Board(2, "두번째 글", "user02", "두번째 글 입력중입니다", "2023-11-28");
 		// board[2] : 5번 글 등록
@@ -28,7 +36,7 @@ public class BoardExe {
 	}
 
 	// 등록 (글번호, 제목, 작성자, 내용, 작성일시) => 반환값 : boolean
-	boolean addBoard(Board board) {
+	public static boolean addBoard(Board board) {
 		for (int i = 0; i < boards.length; i++) {
 			if (boards[i] == null) {
 				boards[i] = board;
@@ -40,7 +48,7 @@ public class BoardExe {
 	}
 
 	// 목록 => 반환값 : 배열
-	Board[] boardList() {
+	public static Board[] boardList() {
 		// boards => 새로운 배열에 정렬된 값으로 반환
 		
 		Board temp = null;
@@ -64,7 +72,7 @@ public class BoardExe {
 	}	// end boardList
 	
 	// 배열, 페이지 => 페이지의 5건을 반환 ???????????????????????????
-	Board[] pageList(Board[] ary, int page) {
+	public static Board[] pageList(Board[] ary, int page) {
 		Board[] resultAry = new Board[5];
 		
 		int start = (page - 1) * 5;
@@ -79,7 +87,7 @@ public class BoardExe {
 	}
 
 	// 단건조회(매개변수 : 글번호) => 반환값 : Board
-	Board getBoard(int boardNo) {
+	public static Board getBoard(int boardNo) {
 		for (int i = 0; i < boards.length; i++) {
 			if (boards[i] != null && boards[i].getBoardNum() == boardNo) {
 				return boards[i];
@@ -89,7 +97,7 @@ public class BoardExe {
 	}
 
 	// 신규번호 : 현재 글번호 + 1
-	int getSequence() {
+	public static int getSequence() {
 		int seqNo = 1;
 		// 배열에서 글번호의 max 가져오기
 		int max = 0;
@@ -103,7 +111,7 @@ public class BoardExe {
 	}
 	
 	// 수정(매개변수 : 글번호, 내용) => 반환값 : boolean
-	boolean modBoard(int no, String content) {
+	public static boolean modBoard(int no, String content) {
 		Date today = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -118,7 +126,7 @@ public class BoardExe {
 	}
 	
 	// 삭제(매개변수 : 글번호) => 반환값 : boolean
-	boolean remBoard(int no) {
+	public static boolean remBoard(int no) {
 		for(int i = 0; i < boards.length; i++) {
 			if(boards[i] != null && boards[i].getBoardNum() == no) {
 				boards[i] = null;
@@ -129,7 +137,7 @@ public class BoardExe {
 	}
 	
 	// 사용자가 해당글번호의 수정, 삭제권한 체크 => boolean
-	boolean checkResponsibility(String id, int no) {
+	public static boolean checkResponsibility(String id, int no) {
 		for(int i = 0; i < boards.length; i++) {
 			if(boards[i] != null && boards[i].getBoardNum() == no && boards[i].getWriter().equals(id)) {
 				return true;
@@ -139,7 +147,7 @@ public class BoardExe {
 	}
 	
 	// 게시글을 담고 있는 배열에서 값이 있는 건수를 반환
-	int getBoardCount() {
+	public static int getBoardCount() {
 		int realCnt = 0;
 		for(int i = 0; i < boards.length; i++) {
 			if(boards[i] != null) {

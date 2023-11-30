@@ -1,17 +1,131 @@
 package todo.p20231128;
 
 import java.util.Scanner;
+// M(odel) : Board, BoardExe
+// V(iew) : html
+// C(ontrol): BoardApp
+
 
 import chap6.User;
 import chap6.UserExe;
 
 public class BoardApp {
-	static BoardExe exe = new BoardExe();
+	//	static BoardExe exe = new BoardExe();
+	// 데이터마다 다른 정보를 담을 필요가 없는 클래스는 static 멤버 선언
+	private Scanner sc = new Scanner(System.in);
+	private String id = null;
+	
+	// 싱글톤 방식의 인스턴스 생성
+	private static BoardApp instance = new BoardApp();	// 싱글톤 생성(3)
+	
+// 생성자
+	private BoardApp() {	// 싱글톤 생성(1)
+		
+	}
+	
+	public static BoardApp getInstance() {	// 싱글톤 생성(2)
+		return instance;
+	}
+	
+	private void boardAdd() {
+		System.out.println("<게시글 등록>");
+//		System.out.print("번호 : ");
+//		int number = Integer.parseInt(sc.nextLine());
+		System.out.print("제목 : ");
+		String title = sc.nextLine();
+//		System.out.print("작성자 : ");
+//		String writer = sc.nextLine();
+		System.out.print("내용 : ");
+		String contents = sc.nextLine();
+		System.out.print("작성일시 : ");
+		String date = sc.nextLine();
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		Board board = new Board(BoardExe.getSequence(), title, id, contents, date);
+
+//		for(int i = 0; i < boards.length; i++) {
+//			if(boards[i] == null) {
+//				boards[i] = board;
+//				break;
+//			}
+//		}
+		
+		if(BoardExe.addBoard(board)) {
+			System.out.println("입력 성공!");
+		} else {
+			System.out.println("처리 실패!");
+		}
+	}	// end boardAdd
+	
+	private void boardList() {
+		Board[] boardAry = BoardExe.boardList();
+		showList(boardAry, 1);
+		while(true) {
+			int page = Integer.parseInt(sc.nextLine());
+			if(page == 0) {
+				break;
+			}
+			showList(boardAry, page);
+		}
+	}	// end boardList
+	
+	private void getBoard() {
+		System.out.println("상세조회 게시글 번호 : ");
+		int number = Integer.parseInt(sc.nextLine());
+		
+//		for(int i = 0; i < boards.length; i++) {
+//			if(boards[i] != null && boards[i].getBoardNum() == number) {
+//				boards[i].showAllInfo();
+//			}
+//		}
+		
+		Board result = BoardExe.getBoard(number);
+		if(result != null) {
+//			result.showAllInfo();
+			System.out.println(result.showDetailInfo());
+		} else {
+			System.out.println("조회된 내용이 없습니다");
+		}
+	}	// end getBoard
+	
+	private void boardEdit() {
+		System.out.println("수정할 게시글 번호 :");
+		int number = Integer.parseInt(sc.nextLine());
+		System.out.println("수정할 내용 : ");
+		String contents = sc.nextLine();
+		// 권한 체크
+		if(!BoardExe.checkResponsibility(id, number)){
+			System.out.println("권한이 없습니다 ...");
+//			continue;
+			return;
+		}
+		
+		if(BoardExe.modBoard(number, contents)) {
+			System.out.println("수정 완료!");
+		} else {
+			System.out.println("수정 실패!");
+		}
+	}	// end boardEdit
+	
+	private void boardDel() {
+		System.out.println("삭제할 게시글 번호 :");
+		int number = Integer.parseInt(sc.nextLine());
+		// 권한 체크
+		if(!BoardExe.checkResponsibility(id, number)){
+			System.out.println("권한이 없습니다 ...");
+//			continue;
+			return;
+		}
+		
+		if(BoardExe.remBoard(number)) {
+			System.out.println("삭제 완료!");
+		} else {
+			System.out.println("삭제 실패!");
+		}
+	}	// end boardDel
+	
+//	public static void main(String[] args) {
+	public void start() {
 		boolean run = true;
-		String id = null;
 		
 		//		Board[] boards = new Board[100];
 		
@@ -34,7 +148,7 @@ public class BoardApp {
 		
 		
 		// 초기값 생성
-		exe.initData();
+		BoardExe.initData();
 		
 		
 		while(run) {
@@ -42,33 +156,34 @@ public class BoardApp {
 			int menu = Integer.parseInt(sc.nextLine());
 			
 			switch(menu) {
-			case 1 :
-				System.out.println("<게시글 등록>");
-//				System.out.print("번호 : ");
-//				int number = Integer.parseInt(sc.nextLine());
-				System.out.print("제목 : ");
-				String title = sc.nextLine();
-//				System.out.print("작성자 : ");
-//				String writer = sc.nextLine();
-				System.out.print("내용 : ");
-				String contents = sc.nextLine();
-				System.out.print("작성일시 : ");
-				String date = sc.nextLine();
-
-				Board board = new Board(exe.getSequence(), title, id, contents, date);
-
-//				for(int i = 0; i < boards.length; i++) {
-//					if(boards[i] == null) {
-//						boards[i] = board;
-//						break;
-//					}
+			case 1 :	// 글 등록
+				boardAdd();
+//				System.out.println("<게시글 등록>");
+////				System.out.print("번호 : ");
+////				int number = Integer.parseInt(sc.nextLine());
+//				System.out.print("제목 : ");
+//				String title = sc.nextLine();
+////				System.out.print("작성자 : ");
+////				String writer = sc.nextLine();
+//				System.out.print("내용 : ");
+//				String contents = sc.nextLine();
+//				System.out.print("작성일시 : ");
+//				String date = sc.nextLine();
+//
+//				Board board = new Board(BoardExe.getSequence(), title, id, contents, date);
+//
+////				for(int i = 0; i < boards.length; i++) {
+////					if(boards[i] == null) {
+////						boards[i] = board;
+////						break;
+////					}
+////				}
+//				
+//				if(BoardExe.addBoard(board)) {
+//					System.out.println("입력 성공!");
+//				} else {
+//					System.out.println("처리 실패!");
 //				}
-				
-				if(exe.addBoard(board)) {
-					System.out.println("입력 성공!");
-				} else {
-					System.out.println("처리 실패!");
-				}
 				break;
 				
 			case 2 :	// 목록보기 -> 페이지보기
@@ -78,68 +193,72 @@ public class BoardApp {
 //					}
 //				}
 				
-				Board[] boardAry = exe.boardList();
-				showList(boardAry, 1);
-				while(true) {
-					int page = Integer.parseInt(sc.nextLine());
-					if(page == 0) {
-						break;
-					}
-					showList(boardAry, page);
-				}
+				boardList();
+//				Board[] boardAry = BoardExe.boardList();
+//				showList(boardAry, 1);
+//				while(true) {
+//					int page = Integer.parseInt(sc.nextLine());
+//					if(page == 0) {
+//						break;
+//					}
+//					showList(boardAry, page);
+//				}
 				break;
 				
 			case 3 :
-				System.out.println("상세조회 게시글 번호 : ");
-				int number = Integer.parseInt(sc.nextLine());
-				
-//				for(int i = 0; i < boards.length; i++) {
-//					if(boards[i] != null && boards[i].getBoardNum() == number) {
-//						boards[i].showAllInfo();
-//					}
+				getBoard();
+//				System.out.println("상세조회 게시글 번호 : ");
+//				int number = Integer.parseInt(sc.nextLine());
+//				
+////				for(int i = 0; i < boards.length; i++) {
+////					if(boards[i] != null && boards[i].getBoardNum() == number) {
+////						boards[i].showAllInfo();
+////					}
+////				}
+//				
+//				Board result = BoardExe.getBoard(number);
+//				if(result != null) {
+////					result.showAllInfo();
+//					System.out.println(result.showDetailInfo());
+//				} else {
+//					System.out.println("조회된 내용이 없습니다");
 //				}
-				
-				Board result = exe.getBoard(number);
-				if(result != null) {
-//					result.showAllInfo();
-					System.out.println(result.showDetailInfo());
-				} else {
-					System.out.println("조회된 내용이 없습니다");
-				}
 				break;
 
 			case 4 :	// 수정
-				System.out.println("수정할 게시글 번호 :");
-				number = Integer.parseInt(sc.nextLine());
-				System.out.println("수정할 내용 : ");
-				contents = sc.nextLine();
-				// 권한 체크
-				if(!exe.checkResponsibility(id, number)){
-					System.out.println("권한이 없습니다 ...");
-					continue;
-				}
-				
-				if(exe.modBoard(number, contents)) {
-					System.out.println("수정 완료!");
-				} else {
-					System.out.println("수정 실패!");
-				}
+				boardEdit();
+//				System.out.println("수정할 게시글 번호 :");
+//				number = Integer.parseInt(sc.nextLine());
+//				System.out.println("수정할 내용 : ");
+//				contents = sc.nextLine();
+//				// 권한 체크
+//				if(!BoardExe.checkResponsibility(id, number)){
+//					System.out.println("권한이 없습니다 ...");
+//					continue;
+//				}
+//				
+//				if(BoardExe.modBoard(number, contents)) {
+//					System.out.println("수정 완료!");
+//				} else {
+//					System.out.println("수정 실패!");
+//				}
 				break;
 				
 			case 5 :
-				System.out.println("삭제할 게시글 번호 :");
-				number = Integer.parseInt(sc.nextLine());
-				// 권한 체크
-				if(!exe.checkResponsibility(id, number)){
-					System.out.println("권한이 없습니다 ...");
-					continue;
-				}
-				
-				if(exe.remBoard(number)) {
-					System.out.println("삭제 완료!");
-				} else {
-					System.out.println("삭제 실패!");
-				}
+				boardDel();
+//				System.out.println("삭제할 게시글 번호 :");
+//				number = Integer.parseInt(sc.nextLine());
+//				// 권한 체크
+//				if(!BoardExe.checkResponsibility(id, number)){
+//					System.out.println("권한이 없습니다 ...");
+//					continue;
+//				}
+//				
+//				if(BoardExe.remBoard(number)) {
+//					System.out.println("삭제 완료!");
+//				} else {
+//					System.out.println("삭제 실패!");
+//				}
 				break;
 				
 			case 6 :
@@ -153,9 +272,9 @@ public class BoardApp {
 
 	}	// end main
 	
-	public static void showList(Board[] boardAry, int page) {
+	private void showList(Board[] boardAry, int page) {
 		// 페이징 처리
-		Board[] pageAry = exe.pageList(boardAry, page);
+		Board[] pageAry = BoardExe.pageList(boardAry, page);
 		System.out.println("글번호 제목\t 작성자");
 		System.out.println("====================");
 //		for(Board brd : boardAry) {
@@ -166,7 +285,7 @@ public class BoardApp {
 		}
 		
 		// 전체페이지 계산하고 출력
-		int cnt = exe.getBoardCount();
+		int cnt = BoardExe.getBoardCount();
 		int totalPage = (int) Math.ceil(cnt / 5.0);
 		
 		for(int i = 1; i <= totalPage; i++) {

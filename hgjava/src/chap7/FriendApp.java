@@ -114,11 +114,18 @@ public class FriendApp {
 		} else if (subMenu == 2) {
 			System.out.print("연락처 : ");
 			serachCond = sc.nextLine();
-			for (Friend fnd : storage) {
-				if (fnd != null && fnd.getPhone().equals(serachCond)) {
-					System.out.println(fnd.showInfo());
-				}
+//			for (Friend fnd : storage) {
+//				if (fnd != null && fnd.getPhone().equals(serachCond)) {
+//					System.out.println(fnd.showInfo());
+//				}
+//			}
+			Friend result = exe.serachPhone(serachCond);
+			if(result != null) {
+				System.out.println(result.showInfo());
+			} else {
+				System.out.println("연락처를 찾을 수 없습니다.");
 			}
+			
 		} else {
 			System.out.println("1 또는 2를 선택하세요");
 		}

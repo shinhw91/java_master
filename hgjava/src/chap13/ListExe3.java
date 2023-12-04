@@ -84,20 +84,13 @@ public class ListExe3 {
 				exists = true;
 				
 				for(int i = 0; i < members.size(); i++) {
-					if(members.indexOf(memberName) != -1) {
-						if(members.get(i).getMemberName().equals(memberName)) {
-							members.remove(i);
-							exists = false;
-						}
-					} else {
-						if(members.get(i).getMemberName().equals(memberName)) {
-							members.remove(i);
-							exists = false;
-						}
+					if(members.get(i).getMemberName().equals(memberName)) {
+						members.remove(i);
+						exists = false;
 						i--;
+						System.out.println("삭제되었습니다.");
 					}
 				}
-				System.out.println("삭제되었습니다.");
 				
 				if(exists) {
 					System.out.println("찾는 이름이 없습니다.");

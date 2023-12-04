@@ -29,7 +29,7 @@ public class FriendExe {
 		// 반환유형이 정해져있음
 		Friend[] result = new Friend[10];
 		for(int i = 0; i < result.length; i++) {
-			if(storage[i].getName().equals(name)) {
+			if(storage[i] != null && storage[i].getName().equals(name)) {
 				result[i] = storage[i];
 			}
 		}

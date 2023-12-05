@@ -88,12 +88,13 @@ public class ListExe3 {
 						members.remove(i);
 						exists = false;
 						i--;
-						System.out.println("삭제되었습니다.");
 					}
 				}
-				
+
 				if(exists) {
 					System.out.println("찾는 이름이 없습니다.");
+				} else {
+					System.out.println("삭제되었습니다.");
 				}
 				break;
 				

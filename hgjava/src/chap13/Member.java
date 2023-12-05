@@ -13,4 +13,10 @@ public class Member {
 		this.memberName = memberName;
 		this.point = point;
 	}
+	
+	// hashCode, equals 정의하는지에 따라서 동일객체 (교재 p.474)
+//	@Override
+//	public int hashCode() {
+//		return super.hashCode();
+//	}
 }

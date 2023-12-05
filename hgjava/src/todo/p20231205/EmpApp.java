@@ -1,6 +1,9 @@
 package todo.p20231205;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,23 +21,36 @@ public class EmpApp {
 			switch(menu) {
 			
 			case 1 :
-				System.out.print("1) 사번 입력>> ");
-				int comNum = Integer.parseInt(sc.nextLine());
-				System.out.print("2) 이름 입력>> ");
-				String name = sc.nextLine();
-				System.out.print("3) 전화번호 입력>> ");
-				String tel = sc.nextLine();
-				System.out.print("4) 입사일자 입력>> ");
-				String hireDate = sc.nextLine();
-				System.out.print("5) 급여 입력>> ");
-				int income = Integer.parseInt(sc.nextLine());
+				System.out.println("사번 이름 전화번호 입사일자 급여");
+				String input = sc.nextLine();
+				String[] inpAry = input.split(" ");
 				
-				emps.add(new Emp(comNum, name, tel, hireDate, income));
+				int comNum = Integer.parseInt(inpAry[0]);
+				String name = inpAry[1];
+				String tel = inpAry[2];
+				int income = Integer.parseInt(inpAry[4]);
+				
+				Emp emp = null;
+				if(inpAry.length == 3) {
+					emp = new Emp(comNum, name, tel);
+				} else if (inpAry.length == 4) {
+					String hireDate = inpAry[3];
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");	// 1. import
+					try {
+						emp = new Emp(comNum, name, tel, sdf.parse(hireDate));
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}	// 2. String -> Date
+				
+				emps.add(emp);
+				
 				System.out.println("저장되었습니다.");
 				break;
 				
 			case 2 :
-				System.out.printf("%-10s %-10s %-15s %-15s %-10s\n", "사번", "이름", "전화번호", "입사일자", "급여");
+				System.out.printf("%s  %s  %s  %s  %s\n", "사번", "이름", "전화번호", "입사일자", "급여");
 				for(int i = 0; i < emps.size(); i++) {
 					emps.get(i).ShowInfo();
 				}
@@ -66,16 +82,17 @@ public class EmpApp {
 				}
 				break;
 				
-			case 5 :
-				System.out.print("1) 입사일자 입력>> ");
-				hireDate = sc.nextLine();
-				List<Emp> temp = new ArrayList<>();
-				
-				for(int i = 0; i < emps.size(); i++) {
-					if(emps.get(i).getHireDate() == hireDate) {
-						temp.add(new Emp(emps.get(i)));
-					}
-				}
+//			case 5 :
+//				System.out.print("1) 입사일자 입력>> ");
+//				hireDate = sc.nextLine();
+//				System.out.printf("%s  %s  %s  %s  %s\n", "사번", "이름", "전화번호", "입사일자", "급여");
+//				
+//				for(int i = 0; i < emps.size(); i++) {
+//					if(emps.get(i).getHireDate().equals(hireDate)) {
+//						emps.get(i).ShowInfo();
+//					}
+//				}
+//				break;
 			
 			}	// end switch
 			

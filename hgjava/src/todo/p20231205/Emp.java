@@ -1,5 +1,8 @@
 package todo.p20231205;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -8,19 +11,26 @@ public class Emp {
 	private int comNum;
 	private String name;
 	private String tel;
-	private String hireDate;
+	private Date hireDate;
 	private int income;
 	
 	// 생성자
-	Emp(int comNum, String name, String tel, String hireDate, int income){
+	Emp(int comNum, String name, String tel) {
+		this.comNum	 = comNum;
+		this.name = name;
+		this.tel = tel;
+		this.hireDate = new Date();
+	}
+	
+	Emp(int comNum, String name, String tel, Date hireDate){
 		this.comNum = comNum;
 		this.name = name;
 		this.tel = tel;
 		this.hireDate = hireDate;
-		this.income = income;
 	}
 	
 	void ShowInfo() {
-		System.out.printf("%-10d %-10s %-15s %-15s %-10d\n", comNum, name, tel, hireDate, income);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.printf("%d  %s  %s  %s  %d\n", comNum, name, tel, sdf.format(hireDate));
 	}
 }

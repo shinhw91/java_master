@@ -11,8 +11,9 @@ public class Emp {
 	private int comNum;
 	private String name;
 	private String tel;
-	private Date hireDate;
+	private String hireDate;
 	private int income;
+	private Date today = new Date();
 	
 	// 생성자
 	Emp(int comNum, String name, String tel) {

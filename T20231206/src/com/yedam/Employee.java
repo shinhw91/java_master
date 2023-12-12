@@ -28,3 +28,6 @@ public class Employee {
 		System.out.printf("%s\t %s\t %s\n", coNum, name, hireDate);
 	}
 }
+
+// 클래스 : 대문자로 시작
+// 속성, 메소드 : 소문자로 시작

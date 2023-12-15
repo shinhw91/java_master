@@ -12,6 +12,10 @@ public class Book {
 	private int price;
 	
 	// 생성자
+	Book(){
+		
+	}
+	
 	Book(String bookCode, String bookName, String writer, String publisher, int price) {
 		this.bookCode = bookCode;
 		this.bookName = bookName;

@@ -1,7 +1,5 @@
 package todo.p20231205;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class BookApp {
@@ -11,9 +9,10 @@ public class BookApp {
 		boolean run = true;
 //		List<Book> books = new ArrayList<>();
 		BookExe exe = new BookExe();
+		BookDAO dao = new BookDAO();
 		
 		while(run) {
-			System.out.println("1.등록 2.목록 3.수정 4.삭제 5.종료");
+			System.out.println("1.등록 2.목록 3.수정 4.삭제 5.단건조회 6.종료");
 			int menu = Integer.parseInt(sc.nextLine());
 			
 			switch(menu) {
@@ -34,7 +33,7 @@ public class BookApp {
 //				break;
 				
 				Book book = new Book(bookCode, bookName, writer, publisher, price);
-				if(exe.addBook(book)) {
+				if(dao.addBook(book)) {
 					System.out.println("저장되었습니다.");
 				} else {
 					System.out.println("저장에 실패하였습니다.");
@@ -48,11 +47,11 @@ public class BookApp {
 //				}
 //				break;
 				
-				for(Book list : exe.bookList())	{
+				for(Book list : dao.bookList())	{
 					list.ShowInfo();
 				}
 				break;
-				
+								
 			case 3 :
 				System.out.print("1) 도서코드입력>> ");
 				bookCode = sc.nextLine();
@@ -67,7 +66,7 @@ public class BookApp {
 //				}
 //				break;
 				
-				if(exe.modifyBook(bookCode, price)) {
+				if(dao.modifyBook(bookCode, price)) {
 					System.out.println("수정되었습니다.");
 				} else {
 					System.out.println("수정에 실패하였습니다.");
@@ -86,7 +85,7 @@ public class BookApp {
 //				}
 //				break;
 				
-				if(exe.removeBook(bookCode)) {
+				if(dao.removeBook(bookCode)) {
 					System.out.println("삭제되었습니다.");
 				} else {
 					System.out.println("삭제에 실패하였습니다.");
@@ -94,6 +93,18 @@ public class BookApp {
 				break;
 				
 			case 5 :
+				System.out.print("조회할 책 코드 : ");
+				String no = sc.nextLine();
+
+				book = dao.getBook(no);
+				if(book != null) {
+					book.ShowInfo();
+				} else {
+					System.out.println("존재하지 않는 정보");
+				}
+				break;
+				
+			case 6 :
 				System.out.println("종료되었습니다.");
 				run = false;
 				

@@ -2,13 +2,17 @@ package remind6;
 
 public class Student {
 	// 속성(필드)
-	private String studentNo;
+	private String studentNo;	// student_no
 	private String studentName;
 	private int eng;
 	private int math;
 
 	// 생성자
-	Student(String studentNo, String studentName, int eng, int math) {
+	Student() {
+		
+	}
+	
+	public Student(String studentNo, String studentName, int eng, int math) {
 		this.studentNo = studentNo;
 		this.studentName = studentName;
 		this.eng = eng;

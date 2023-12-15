@@ -1,4 +1,4 @@
-package todo.p20231214_home;
+package com.yedam;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CstoreDAO {
+public class AccountDAO {
 	
 	Connection conn;
 	PreparedStatement psmt;
@@ -36,7 +36,7 @@ public class CstoreDAO {
 			psmt.setString(2, accountPw);
 			
 			int r = psmt.executeUpdate();
-			if(r == 1) {
+			if(r > 0) {
 				return true;
 			}
 			
@@ -58,7 +58,7 @@ public class CstoreDAO {
 			psmt.setString(4, accountPw);
 			
 			int r = psmt.executeUpdate();
-			if(r == 1) {
+			if(r > 0) {
 				return true;
 			}
 			
